@@ -51,8 +51,6 @@ GitHub (CSV Source)
 | `rooms` | Room type, price per night |
 | `reviews` | Guest reviews per booking |
 
-Source: [AnshLamba YouTube — FabricPipelines](https://github.com/anshlambagit/AnshLambaYoutube/tree/main/FabricPipelines)
-
 ---
 
 ## 🥉 Bronze Layer
@@ -95,11 +93,11 @@ Silver OBT transformed into a Star Schema optimized for Power BI:
 
 | Table | Key | Description |
 |---|---|---|
-| `FactBookings` | booking_id | Measures: nights_stayed, total_price, review_rating |
-| `DimGuest` | guest_key | Guest attributes |
-| `DimHotelRoom` | hotel_room_key | Hotel and room attributes combined |
-| `DimFlags` | flag_id | Junk dimension: booking_status + is_reviewed |
-| `DimDate` | date | Date hierarchy for time intelligence |
+| `fact_bookings` | booking_id | Measures: nights_stayed, total_price, review_rating |
+| `dim_guests` | guest_key | Guest attributes |
+| `dim_hotels` | hotel_room_key | Hotel and room attributes combined |
+| `dim_flags` | flag_id | Junk dimension: booking_status + is_reviewed |
+| `dim_date` | date | Date hierarchy for time intelligence |
 
 
 **Lineage timestamps per record:**

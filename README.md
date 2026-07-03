@@ -91,12 +91,7 @@ bookings (base)
 
 Silver OBT transformed into a Star Schema optimized for Power BI:
 
-```
-DimGuest ──┐
-DimHotelRoom ──┼──► FactBookings
-DimFlags ──┘
-DimDate (DAX calculated table)
-```
+<img width="1052" height="537" alt="semnatic_model" src="https://github.com/user-attachments/assets/5a17b51b-619b-4839-9621-65493fab1f5b" />
 
 | Table | Key | Description |
 |---|---|---|
@@ -105,8 +100,6 @@ DimDate (DAX calculated table)
 | `DimHotelRoom` | hotel_room_key | Hotel and room attributes combined |
 | `DimFlags` | flag_id | Junk dimension: booking_status + is_reviewed |
 | `DimDate` | date | Date hierarchy for time intelligence |
-
-<img width="500" height="500" alt="semnatic_model" src="https://github.com/user-attachments/assets/838e067f-2b38-4ac0-81aa-a2fcf8c6c3d3" />
 
 
 **Lineage timestamps per record:**

@@ -89,8 +89,6 @@ bookings (base)
 
 Silver OBT transformed into a Star Schema optimized for Power BI:
 
-<img width="800" height="400" alt="semnatic_model" src="https://github.com/user-attachments/assets/5a17b51b-619b-4839-9621-65493fab1f5b" />
-
 | Table | Key | Description |
 |---|---|---|
 | `fact_bookings` | booking_id | Measures: nights_stayed, total_price, review_rating |
@@ -103,6 +101,9 @@ Silver OBT transformed into a Star Schema optimized for Power BI:
 **Lineage timestamps per record:**
 - `silver_processed_date` — when Dataflow Gen2 processed to Silver
 - `gold_processed_at` — when Dataflow Gen2 processed to Gold
+
+### Semantic model
+<img width="800" height="400" alt="semnatic_model" src="https://github.com/user-attachments/assets/5a17b51b-619b-4839-9621-65493fab1f5b" />
 
 ---
 
@@ -166,9 +167,7 @@ hotel-fabric-project/
   /dataflows
     bronze_to_silver.pq
     silver_to_gold.pq
-  /dax
-    measures.dax
-  /data
+  /datasets
     bookings.csv
     guests.csv
     hotels.csv

@@ -106,6 +106,9 @@ DimDate (DAX calculated table)
 | `DimFlags` | flag_id | Junk dimension: booking_status + is_reviewed |
 | `DimDate` | date | Date hierarchy for time intelligence |
 
+<img width="500" height="500" alt="semnatic_model" src="https://github.com/user-attachments/assets/838e067f-2b38-4ac0-81aa-a2fcf8c6c3d3" />
+
+
 **Lineage timestamps per record:**
 - `silver_processed_date` — when Dataflow Gen2 processed to Silver
 - `gold_processed_at` — when Dataflow Gen2 processed to Gold

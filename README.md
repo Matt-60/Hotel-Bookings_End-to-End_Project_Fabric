@@ -91,7 +91,7 @@ bookings (base)
 
 Silver OBT transformed into a Star Schema optimized for Power BI:
 
-<img width="600" height="500" alt="semnatic_model" src="https://github.com/user-attachments/assets/5a17b51b-619b-4839-9621-65493fab1f5b" />
+<img width="650" height="400" alt="semnatic_model" src="https://github.com/user-attachments/assets/5a17b51b-619b-4839-9621-65493fab1f5b" />
 
 | Table | Key | Description |
 |---|---|---|

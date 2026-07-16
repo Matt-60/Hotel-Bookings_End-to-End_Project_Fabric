@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Star_schema_bookings"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d6bbfaa0-3c2e-98f2-4583-60392c955d73"
+  }
+}

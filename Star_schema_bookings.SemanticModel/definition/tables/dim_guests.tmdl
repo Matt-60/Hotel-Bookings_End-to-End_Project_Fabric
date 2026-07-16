@@ -1,0 +1,57 @@
+table dim_guests
+	lineageTag: 136f8f20-b56c-45b6-b787-8d8d80567741
+	sourceLineageTag: [dbo].[dim_guests]
+
+	column guest_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bc062e10-3428-42a5-bf0b-95b8fec9f659
+		sourceLineageTag: guest_id
+		summarizeBy: none
+		sourceColumn: guest_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_name
+		dataType: string
+		lineageTag: 80117744-beb9-4fba-aecf-57a5942dfdfb
+		sourceLineageTag: guest_name
+		summarizeBy: none
+		sourceColumn: guest_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_email
+		dataType: string
+		lineageTag: 49431637-d651-4c4e-9571-201d63f28a97
+		sourceLineageTag: guest_email
+		summarizeBy: none
+		sourceColumn: guest_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_phone
+		dataType: string
+		lineageTag: 1c98df41-0870-4c11-8bec-23859fb3aecf
+		sourceLineageTag: guest_phone
+		summarizeBy: none
+		sourceColumn: guest_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_country
+		dataType: string
+		lineageTag: 99109a4c-b091-45d9-be2e-410170a23bf5
+		sourceLineageTag: guest_country
+		summarizeBy: none
+		sourceColumn: guest_country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_guests = entity
+		mode: directLake
+		source
+			entityName: dim_guests
+			schemaName: dbo
+			expressionSource: 'DirectLake - Gold_hotels_Lh'
+

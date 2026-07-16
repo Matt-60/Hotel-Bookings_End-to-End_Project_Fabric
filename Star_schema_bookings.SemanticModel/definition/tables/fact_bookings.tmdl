@@ -1,0 +1,222 @@
+table fact_bookings
+	lineageTag: fed8f020-10ab-4e69-a5f4-0aef3924ab01
+	sourceLineageTag: [dbo].[fact_bookings]
+
+	measure 'Total Bookings' = COUNTROWS(fact_bookings)
+		displayFolder: zz_Measures
+		lineageTag: a407b899-9ed2-48e1-a8d6-896d04288768
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Revenue' = SUM(fact_bookings[total_price])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: zz_Measures
+		lineageTag: eec95b46-d58d-4cfc-bf29-4c206080d3a8
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Review Rating' = AVERAGE(fact_bookings[review_rating])
+		displayFolder: zz_Measures
+		lineageTag: 89234f16-5c95-4e7d-986d-3e7d7981e58e
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Nights' = AVERAGE(fact_bookings[nights_stayed])
+		displayFolder: zz_Measures
+		lineageTag: 0d9c3933-ef01-4e52-9561-087fa8543ce0
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cancellation Rate' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS(fact_bookings),
+			        KEEPFILTERS(dim_flags[booking_status] = "cancelled")
+			    ),
+			    COUNTROWS(fact_bookings),
+			    0
+			)
+		displayFolder: zz_Measures
+		lineageTag: eaff8eb5-97f9-4aa8-813f-27f71d843add
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Revenue' = AVERAGE(fact_bookings[total_price])
+		displayFolder: zz_Measures
+		lineageTag: c1ad64c6-84c5-47d0-ba07-a1331e15688c
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column booking_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 70eec9a0-4af0-4434-af4b-1784b11146e6
+		sourceLineageTag: booking_id
+		summarizeBy: sum
+		sourceColumn: booking_id
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c3f0b95-6aed-41dd-8ba5-a9ef17c0071c
+		sourceLineageTag: guest_id
+		summarizeBy: none
+		sourceColumn: guest_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column room_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 24cb84de-531d-44f9-944c-3e12f23a07d5
+		sourceLineageTag: room_id
+		summarizeBy: sum
+		sourceColumn: room_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column hotel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ce6491c-0f2b-458b-a33f-bdd322b53eae
+		sourceLineageTag: hotel_id
+		summarizeBy: none
+		sourceColumn: hotel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e51f4172-9d82-4d1d-89c6-bd5417aaa625
+		sourceLineageTag: flag_id
+		summarizeBy: none
+		sourceColumn: flag_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_per_night
+		dataType: int64
+		formatString: 0
+		lineageTag: 1bb2b426-b943-4a9d-b5de-cb733941f6e0
+		sourceLineageTag: price_per_night
+		summarizeBy: sum
+		sourceColumn: price_per_night
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_price
+		dataType: int64
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 8ba13b41-0396-48a5-a8cd-a6c1db82d145
+		sourceLineageTag: total_price
+		summarizeBy: sum
+		sourceColumn: total_price
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column review_rating
+		dataType: double
+		lineageTag: 8a6e506c-eb84-447c-b08c-ef6efc3b412b
+		sourceLineageTag: review_rating
+		summarizeBy: sum
+		sourceColumn: review_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nights_stayed
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f336d0a-c497-40dd-b8ad-dd28271857e8
+		sourceLineageTag: nights_stayed
+		summarizeBy: sum
+		sourceColumn: nights_stayed
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_in
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c92dca0d-ce20-4574-bafc-ea5e8ca51ce9
+		sourceLineageTag: check_in
+		summarizeBy: none
+		sourceColumn: check_in
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_out
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ada546e-5636-4f60-94d7-e77c1e59d3b1
+		sourceLineageTag: check_out
+		summarizeBy: none
+		sourceColumn: check_out
+
+		annotation SummarizationSetBy = Automatic
+
+	column silver_processed_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4168f64d-65b4-4e88-bdc2-655cd883267b
+		sourceLineageTag: silver_processed_date
+		summarizeBy: none
+		sourceColumn: silver_processed_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_processed_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 99acb89a-23c7-42af-b3ed-759b1b718914
+		sourceLineageTag: gold_processed_date
+		summarizeBy: none
+		sourceColumn: gold_processed_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_bookings = entity
+		mode: directLake
+		source
+			entityName: fact_bookings
+			schemaName: dbo
+			expressionSource: 'DirectLake - Gold_hotels_Lh'
+

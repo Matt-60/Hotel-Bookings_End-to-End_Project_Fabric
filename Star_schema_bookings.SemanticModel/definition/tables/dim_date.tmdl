@@ -1,0 +1,97 @@
+table dim_date
+	lineageTag: bec9be80-e1b2-45ed-8490-feb32ca8e2e2
+	sourceLineageTag: [dbo].[dim_date]
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: General Date
+		lineageTag: 5a70c736-50fc-4445-9f21-4de7dc34e6f1
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 91e01a5b-311f-4849-ac1e-e77e16142a8a
+		sourceLineageTag: year
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: fdf19eea-252a-4154-a987-ecbe3033046c
+		sourceLineageTag: month
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 6a6f960b-9831-4a5f-a88b-ec3cbe8cc529
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: a92f0408-d951-4798-888b-039e3143440d
+		sourceLineageTag: quarter
+		summarizeBy: none
+		sourceColumn: quarter
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		lineageTag: 3640c983-48f5-46a0-995b-22ad43364f27
+		sourceLineageTag: day
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: b07eafbd-8629-4563-968f-53ef0a9af4ad
+		sourceLineageTag: day_name
+		summarizeBy: none
+		sourceColumn: day_name
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8c1f8fe8-0cc2-44c7-bf73-d7ceaeb72db7
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: 'DirectLake - Gold_hotels_Lh'
+

@@ -1,0 +1,51 @@
+table KPIs
+	lineageTag: 3be34b0c-1a7c-4abb-a8e7-004ff62e73f7
+
+	column KPIs
+		lineageTag: 9a4b6d55-bcbf-4a43-93eb-0d56f83fd1da
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'KPIs Order'
+
+		relatedColumnDetails
+			groupByColumn: 'KPIs Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KPIs Fields'
+		isHidden
+		lineageTag: 6d65ecf4-82f4-426c-b9f0-bd3b4e9c4091
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'KPIs Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KPIs Order'
+		isHidden
+		formatString: 0
+		lineageTag: 40bb94a1-7a92-49eb-b276-c9a97383611f
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KPIs = calculated
+		mode: import
+		source =
+				{
+				    ("Total Revenue", NAMEOF('fact_bookings'[Total Revenue]), 0),
+				    ("Avg Revenue", NAMEOF('fact_bookings'[Avg Revenue]), 1),
+				    ("Total Bookings", NAMEOF('fact_bookings'[Total Bookings]), 2),
+				    ("Avg Nights", NAMEOF('fact_bookings'[Avg Nights]), 3),
+				    ("Cancellation Rate", NAMEOF('fact_bookings'[Cancellation Rate]), 4)
+				}
+
+	annotation PBI_Id = 318398b901e245b289fce83ca4d61981
+

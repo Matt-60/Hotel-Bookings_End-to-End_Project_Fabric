@@ -1,0 +1,53 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Silver_to_gold",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Silver_OBT": {
+      "queryId": "9d8d7499-d26b-48db-b2e4-0ce5c4cc4556",
+      "queryName": "Silver_OBT"
+    },
+    "dim_flags": {
+      "queryId": "82be21f4-cbc2-44c1-aa28-9dad01caac64",
+      "queryName": "dim_flags",
+      "loadEnabled": false
+    },
+    "fact_bookings": {
+      "queryId": "85715f65-9312-45a5-82da-4af740b5c23d",
+      "queryName": "fact_bookings",
+      "loadEnabled": false
+    },
+    "dim_hotels": {
+      "queryId": "77e6ad5c-f378-431d-9018-d4399ef9654f",
+      "queryName": "dim_hotels",
+      "loadEnabled": false
+    },
+    "dim_guests": {
+      "queryId": "9ebc8402-469a-44c2-8c4c-4dceea1e8cd3",
+      "queryName": "dim_guests",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "55eb7e8e-93e8-4bad-9cb2-632ed0a13d11",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_date": {
+      "queryId": "d74d7c62-14c7-49a0-af50-483a931d9dc1",
+      "queryName": "dim_date",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"69c4ec43-9b97-4e9d-a4c5-8909a5b2a688\",\"DatasourceId\":\"c85951f5-6463-4fbe-80e0-a13016dce6cd\"}"
+    }
+  ]
+}

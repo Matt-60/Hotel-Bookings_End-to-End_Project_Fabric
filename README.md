@@ -4,6 +4,12 @@ A complete end-to-end data engineering project built on **Microsoft Fabric**, im
 
 ---
 
+## 🎯 Business Goal
+
+Hotel management needs daily visibility into revenue, occupancy, cancellations, and guest satisfaction across multiple properties — without manually pulling and reconciling data from separate booking, guest, and review systems. This pipeline automates that process end-to-end: raw booking data lands, gets cleaned and modeled overnight, and is ready in Power BI every morning with no manual intervention, so management can track cancellation rate, revenue trends, and hotel performance as a routine, not a project.
+
+---
+
 ## 🏗️ Architecture
 
 ```
